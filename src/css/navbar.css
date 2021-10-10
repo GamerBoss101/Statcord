@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fix {
+    position: fixed;
+}
+
+.drag {
+    margin: 0;
+    padding: 0;
+    height: 10px;
+    width: 100%;
+    -webkit-app-region: drag
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    display: block;
+    z-index: 0;
+    object-fit: contain !important;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none !important;
+    z-index: 1;
+    height: 50px;
+}
+  
+li a:hover {
+    background-color: #111;
+    color: rgb(255, 255, 255);
+    text-decoration: none !important;
+    z-index: 1;
+}
+  
+li b {
+    position: absolute;
+    display: block;
+    color: white;
+    background-color: rgb(120, 120, 228);
+    width: 90%;
+    height: 50px;
+    text-align: center;
+    text-decoration: none !important;
+    -webkit-app-region: drag
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    color: #f1f1f1 !important;
+    font-size: 25px !important;
+    font-weight: bold;
+    transition: 0.3s;
+    opacity: 1 !important;
+    left: 95.5%;
+}
+  
+.close:hover,
+.close:focus {
+    background-color: none !important;
+    color: #bbb;
+    font-size: 45px;
+    text-decoration: none;
+    cursor: pointer;
+}
