@@ -1,5 +1,5 @@
 body{
-    background: #1a1a1a;
+    background: #333;
     color: white;
 }
 
@@ -30,4 +30,15 @@ body{
     font-size: 48px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+}
+
+footer {
+    background-color: rgba(78, 78, 78, 0.432);
+    color: rgb(0, 0, 0);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 8%;
+    width: 100%;
+    padding: 10px;
 }

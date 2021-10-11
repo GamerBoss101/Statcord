@@ -5,78 +5,45 @@
 
 .fix {
     position: fixed;
+    top: 0%;
 }
 
-.drag {
-    margin: 0;
-    padding: 0;
-    height: 10px;
+#grid {
+    display: grid;
+    background-color: rgb(58, 58, 58);
+    height: 30px;
     width: 100%;
-    -webkit-app-region: drag
+    text-align: center;
+    grid-template-columns: fit-content(100%) 1fr 30px 30px;
+    grid-template-rows: 30px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    height: 50px;
-    width: 100%;
-    overflow: hidden;
-    background-color: #333;
-    display: block;
-    z-index: 0;
-    object-fit: contain !important;
-}
-  
-li {
-    float: left;
-}
-  
-li a {
-    display: block;
+#name {
+    padding: 5px;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none !important;
-    z-index: 1;
-    height: 50px;
+    font-size: 15px !important;
 }
   
-li a:hover {
-    background-color: #111;
-    color: rgb(255, 255, 255);
-    text-decoration: none !important;
-    z-index: 1;
+#drag {
+    -webkit-app-region: drag;
 }
   
-li b {
-    position: absolute;
-    display: block;
+#mini {
     color: white;
-    background-color: rgb(120, 120, 228);
-    width: 90%;
-    height: 50px;
-    text-align: center;
-    text-decoration: none !important;
-    -webkit-app-region: drag
+    font-size: 20px !important;
 }
 
-/* The Close Button */
-.close {
-    position: absolute;
-    color: #f1f1f1 !important;
-    font-size: 25px !important;
-    font-weight: bold;
-    transition: 0.3s;
-    opacity: 1 !important;
-    left: 95.5%;
-}
-  
-.close:hover,
-.close:focus {
-    background-color: none !important;
-    color: #bbb;
-    font-size: 45px;
-    text-decoration: none;
+#mini:hover {
     cursor: pointer;
+    background-color: rgb(107, 107, 107);
+}
+
+#close {
+    color: white;
+    font-size: 25px !important;
+}
+
+#close:hover, #close:focus {
+    cursor: pointer;
+    background-color: rgb(247, 67, 67);
 }

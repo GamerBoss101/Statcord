@@ -1,5 +1,5 @@
 {
-  "name": "rich-discord",
+  "name": "discord-status",
   "version": "1.0.0",
   "description": "Discord rich Presense Program",
   "main": "index.js",
@@ -13,13 +13,14 @@
     "colors": "^1.4.0",
     "discord-rpc": "^4.0.1",
     "discord.js": "^13.2.0",
-    "fs": "^0.0.1-security",
+    "find-process": "^1.4.5",
     "node-addon-api": "^4.2.0",
     "node-static": "^0.7.11",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "electron": "^15.1.2",
-    "electron-builder": "^22.13.1"
+    "electron-builder": "^22.13.1",
+    "fs": "^0.0.1-security"
   }
 }
