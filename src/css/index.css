@@ -1,40 +1,127 @@
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #b6b6b6; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(87, 87, 87); 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #7308ee; 
+}
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    height:100%;
+    width:100%;
+    padding:0;
+}
+
 body{
-    background: #333;
+    background: rgb(32, 32, 32) !important;
     color: white;
 }
 
-#control{
-    -webkit-app-region: drag;
+#back-btn {
+    position: absolute;
+    top: 6%;
+    left: 1%;
+    color: #f1f1f1 !important;
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    opacity: 1 !important;
+}
+
+#back-btn:hover {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#container {
+    margin-top: 20px;
+    perspective: 500px;
     width: 100%;
-    height: 100vh;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    position: absolute;
-    background: transparent;
+    height: 250px;
 }
 
-#download{
+#container-text {
     position: absolute;
-    bottom: 15px;
-    width: 80%;
-    left: 10%;
-    height: 25px;
+    top: 15% !important;
+    left: 7.5% !important;
+    font-size: 50px;
+    color: white;
+    padding: 15px 5%;
+    animation-name: zoom;
+    animation-duration: 1.5s;
 }
 
-#download-label{
+#preview {
     position: absolute;
-    top: 20vh;
-    width: 97%;
+    top: 1%;
+    left: 65%;
+    width: 100%;
+    height: 100%;
+    background: url("../images/preview.png") no-repeat;
+    transform: rotateY(-20deg);
+    animation-name: zoom2;
+    animation-duration: 1.5s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+@keyframes zoom2 {
+    from {
+        transform:scale(0);
+        transform: rotateY(0deg);
+    } 
+    to {
+        transform: scale(1);
+        transform: rotateY(-20deg);
+    }
+}
+
+#button-grid {
+    position: absolute;
+    top: 32.5%;
+    left: 5%;
+    display: grid;
+    width: 100%;
+    padding: 25px 5%;
+    grid-gap:  25px 35px;
+    grid-template-columns: repeat(3, 250px);;
+    grid-template-rows: repeat(3, 125px);;
+}
+
+#grid-button {
+    background-color: rgb(9, 148, 148);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    padding: 40px 5%;
     text-align: center;
-    font-size: 48px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-size: 30px;
+    border-radius: 5%;
 }
+
+#grid-button:hover {
+    background-color: rgb(42, 95, 95);
+}
+
 
 footer {
     background-color: rgba(78, 78, 78, 0.432);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     position: fixed;
     left: 0;
     bottom: 0;

@@ -7,7 +7,7 @@ function onLoad () {
         console.log(list)
         if(list.length > 0) {
             discordFind.innerHTML = "🟢 - Discord Found"
-            discordFind.style.color = "green";
+            discordFind.style.color = "#00FF49";
         } else {
             discordFind.innerHTML = "🔴 - Discord Not Found"
             discordFind.style.color = "red";

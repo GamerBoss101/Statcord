@@ -9,12 +9,14 @@
 }
 
 #grid {
+    position: absolute;
+    top: 0%;
     display: grid;
     background-color: rgb(58, 58, 58);
     height: 30px;
     width: 100%;
     text-align: center;
-    grid-template-columns: fit-content(100%) 1fr 30px 30px;
+    grid-template-columns: fit-content(100%) 1fr 30px 30px 30px;
     grid-template-rows: 30px;
 }
 
@@ -46,4 +48,14 @@
 #close:hover, #close:focus {
     cursor: pointer;
     background-color: rgb(247, 67, 67);
+}
+
+#settings {
+    color: white;
+    font-size: 25px !important;
+}
+
+#settings:hover, #settings:focus {
+    cursor: pointer;
+    background-color: rgba(9, 149, 243, 0.842);
 }

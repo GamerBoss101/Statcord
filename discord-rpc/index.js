@@ -27,40 +27,6 @@ rpc.on('ready', () => {
 	console.clear();
 	console.log(banner.green);
 	console.log("Setting RPC activity...".cyan);
-
-	//TODO Probably add enable/disable options in config.json
-
-	const json = {
-		"Client_Id": "896551646308499537",
-		"Client_Secret": "c_Jc1EIPUVJUEBGGo_eY-dzR1U5XnKtK",
-		"Rich_Presence":{
-			"details": "I am Studing",
-			"state": "Brain Hurt",
-			"username": "SirBlob",
-			"file_username": "study",
-			"bannername": "Studing . .",
-			"file_bannername": "study",
-			"maxpartysize": 1,
-			"countdown_start": 3600, 
-			"Refresh": false,
-			"Refresh_time": 50,
-			"button":{
-				"label": "Click ME!",
-				"url": "http://get.insultsite.tk/"
-			}
-		},
-		"Dont_Touch":{
-			"updatecounter": 2
-		}
-	}
-
-	let data = JSON.stringify(json, null, 2);
-	fs.writeFile("test.json", data, function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("The file was saved!");
-	}); 
 	
 	//Sets the initial Rich Presence
 	rpc.setActivity({

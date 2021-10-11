@@ -1,5 +1,10 @@
 const { ipcRenderer } = require('electron');
 
+var settingsButton = document.getElementById("settings")
+settingsButton.addEventListener("click", function (e) {
+    ipcRenderer.send('open-settings');
+});
+
 var miniButton = document.getElementById("mini")
 miniButton.addEventListener("click", function (e) {
     ipcRenderer.send('minimize-window');
