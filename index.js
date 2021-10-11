@@ -70,8 +70,14 @@ function createWindow() {
 // IPCMAIN Functions
 ipcMain.on('minimize-window', () => { win.hide() });
 ipcMain.on('close-window', () => { win.close() });
+ipcMain.on('open-main', () => { win.loadFile('src/html/index.html'); });
 ipcMain.on('open-settings', () => { win.loadFile('src/html/settings.html'); });
+ipcMain.on('open-setup', () => { win.loadFile('src/html/setup.html'); });
+ipcMain.on('open-selector', () => { win.loadFile('src/html/settings.html'); });
+ipcMain.on('open-image-selector', () => { win.loadFile('src/html/settings.html'); });
+ipcMain.on('open-console', () => { win.loadFile('src/html/settings.html'); });
 
 app.whenReady().then(createWindow);
+app.on('before-quit', function() { tray.destroy(); });
 app.on('window-all-closed', function(){ if(process.platform !== 'darwin'){ app.quit() } });
 app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) { createWindow() } });

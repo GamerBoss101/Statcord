@@ -14,3 +14,8 @@ var closeButton = document.getElementById("close")
 closeButton.addEventListener("click", function (e) {
     ipcRenderer.send('close-window');
 }); 
+
+var backButton = document.getElementById("back-btn")
+backButton.addEventListener("click", function (e) {
+    ipcRenderer.send('open-main');
+}); 
