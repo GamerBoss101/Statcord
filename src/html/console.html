@@ -32,14 +32,28 @@
   </div>
   <br>
   <div class="back-btn" id="back-btn">&#10094;</div>
-  <center>
-    <img src="../images/soon.png" class="img-soon" alt="Coming-Soon" height="250">
-  </center>
+  <div class="console-button-box">
+    <p id="console-button-box-user"></p>
+    <p id="console-button-box-status"></p>
+    <br>
+    <div class="button">
+      <button class="btn btn-success" id="on" onclick="On()">On</button>
+      <button class="btn btn-warning" id="update">Update</button>
+      <button class="btn btn-danger" id="off" onclick="Off()">Off</button>
+    </div>
+  </div>
+  <div class="console-settings-box">
+    <p id="console-settings-box-details"></p>
+    <p id="console-settings-box-state"></p>
+    <p id="console-settings-box-picturename"></p>
+  </div>
+  <div class="console" id="console"></div>
   <footer>
     <p id="discord-find"></p>
   </footer>
   <script src="../js/controls.js"></script>
   <script src="../js/button.js"></script>
+  <script src="../js/console.js"></script>
   <script src="../js/discord.js"></script>
 </body>
 </html>

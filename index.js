@@ -45,20 +45,22 @@ function createWindow() {
         const json = {
             "Client_Id": "896551646308499537",
             "Rich_Presence":{
-                "details": "",
-                "state": "Brain Hurt",
-                "username": "SirBlob",
-                "file_username": "study",
-                "bannername": "Studing . .",
-                "file_bannername": "music",
+                "details": "Vibing",
+                "state": "Music. . .",
+                "file_username": "vibing",
+                "bannername": "Vibe_knight",
+                "file_bannername": "vibing",
                 "maxpartysize": 1,
-                "countdown_start": 3600, 
+                "countdown_start": 1, 
                 "Refresh": false,
-                "Refresh_time": 50,
-                "button":[]
+                "Refresh_time": 1000,
+                "button":{
+                    "label": null,
+                    "url": null
+                }
             },
             "Dont_Touch":{
-                "updatecounter": 2
+                "updatecounter": 0
             }
         }
     
@@ -75,7 +77,7 @@ ipcMain.on('open-settings', () => { win.loadFile('src/html/settings.html'); });
 ipcMain.on('open-setup', () => { win.loadFile('src/html/setup.html'); });
 ipcMain.on('open-selector', () => { win.loadFile('src/html/settings.html'); });
 ipcMain.on('open-image-selector', () => { win.loadFile('src/html/settings.html'); });
-ipcMain.on('open-console', () => { win.loadFile('src/html/settings.html'); });
+ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
 
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { tray.destroy(); });

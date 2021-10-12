@@ -15,6 +15,7 @@
     "discord-rpc": "^4.0.1",
     "discord.js": "^13.2.0",
     "find-process": "^1.4.5",
+    "moment": "^2.29.1",
     "path": "^0.12.7"
   },
   "devDependencies": {

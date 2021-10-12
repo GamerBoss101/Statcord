@@ -1,7 +1,5 @@
 const find = require('find-process');
 
-var myVar = setInterval(onLoad, 10000);
-
 function onLoad () {
     var discordFind = document.getElementById("discord-find")
     find('name', 'Discord.exe', true)
