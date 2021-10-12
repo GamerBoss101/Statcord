@@ -1,11 +1,12 @@
 {
-  "name": "discord-status",
+  "name": "statcord",
   "version": "1.0.0",
   "description": "Discord rich Presense Program",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
+    "build": "electron-builder build",
     "setup": "electron-installer-windows --src dist/win-unpacked/ --dest dist/installers/"
   },
   "author": "Sir Blob",
@@ -22,6 +23,23 @@
     "electron": "^15.1.2",
     "electron-builder": "^22.13.1",
     "electron-installer-windows": "^3.0.0",
+    "electron-packager": "^15.4.0",
+    "electron-rebuild": "^3.2.3",
     "fs": "^0.0.1-security"
+  },
+  "build": {
+    "win": {
+      "target": "nsis",
+      "asar": "true"
+    },
+    "nsis": {
+      "deleteAppDataOnUninstall": true,
+      "shortcutName": "Statcord",
+      "displayLanguageSelector": true,
+      "oneClick": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false
+    }
   }
 }
