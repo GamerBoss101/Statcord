@@ -13,3 +13,18 @@
 .white {
     color: white !important;
 }
+
+.orange {
+    color: orange !important;
+}
+
+.bggrey {
+    background-color: grey !important;
+    border: none !important;
+}
+
+.bggrey:hover {
+    cursor: default;
+    background-color: grey !important;
+    border: none !important;
+}

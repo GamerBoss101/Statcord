@@ -24,9 +24,9 @@ async function createWindow() {
         frame: false,
         maximizable: true,
         minimizable: true,
-        title: 'Discord Status',
+        title: 'Statcord',
     })
-    win.setTitle('Discord Status');
+    win.setTitle('Statcord');
     win.loadFile('src/html/index.html');
 
     win.on('close', function (event) { app.isQuiting = true, app.quit() })
@@ -59,8 +59,7 @@ async function createWindow() {
               "bannername": "Vibe_knight",
               "file_bannername": "vibing"
             }
-          }
-    
+        }
         let data = JSON.stringify(json, null, 2);
         fs.writeFile("config.json", data, function(err) { if(err) { return console.log(err) } console.log("The file was saved!") }); 
     }
@@ -72,10 +71,10 @@ ipcMain.on('close-window', () => { win.close() });
 ipcMain.on('open-main', () => { win.loadFile('src/html/index.html'); });
 ipcMain.on('open-settings', () => { win.loadFile('src/html/settings.html'); });
 ipcMain.on('open-setup', () => { win.loadFile('src/html/setup.html'); });
-ipcMain.on('open-selector', () => { win.loadFile('src/html/settings.html'); });
-ipcMain.on('open-image-selector', () => { win.loadFile('src/html/settings.html'); });
+ipcMain.on('open-selector', () => { win.loadFile('src/html/selector.html'); });
 ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
 
+// APP Functions
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { tray.destroy(); });
 app.on('window-all-closed', function(){ if(process.platform !== 'darwin'){ app.quit() } });

@@ -28,18 +28,21 @@
     "node-fetch": "^3.0.0"
   },
   "build": {
+    "appId": "ml.bosstop.statcord",
+    "productName": "Statcord",
     "win": {
       "target": "nsis",
       "asar": "true"
     },
     "nsis": {
+      "license": "./eula.txt",
       "deleteAppDataOnUninstall": true,
+      "createStartMenuShortcut": true,
       "shortcutName": "Statcord",
-      "displayLanguageSelector": true,
       "oneClick": false,
       "allowElevation": false,
       "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": false
+      "createDesktopShortcut": true
     }
   }
 }
