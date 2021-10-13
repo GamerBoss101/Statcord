@@ -16,7 +16,7 @@
     height: 30px;
     width: 100%;
     text-align: center;
-    grid-template-columns: fit-content(100%) 1fr 30px 30px 30px;
+    grid-template-columns: fit-content(100%) fit-content(100%) 1fr 30px 30px 30px;
     grid-template-rows: 30px;
     z-index: 1;
 }
@@ -27,6 +27,11 @@
     font-size: 15px !important;
 }
   
+#version {
+    padding: 5px;
+    font-size: 15px !important;
+}
+
 #drag {
     -webkit-app-region: drag;
 }

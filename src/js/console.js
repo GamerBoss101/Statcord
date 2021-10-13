@@ -19,7 +19,7 @@ var userConsole = document.getElementById("console-button-box-user")
 function onLoad () {
     Console.innerHTML += `
     <p style="font-size: 25px;">Discord-RPC Console</p>
-    <p>User: ` + config.Rich_Presence.username + `&nbsp;&nbsp;&nbsp;&nbsp; ID: ` + config.id + `</p>
+    <p>User: ` + config.username + `&nbsp;&nbsp;&nbsp;&nbsp; ID: ` + config.id + `</p>
     `
     userConsole.innerHTML = "User: " + config.username
     statusConsole.innerHTML = "Status: 🔴 - Offline" 
@@ -52,14 +52,7 @@ function On() {
             // smallImageKey: config.Rich_Presence.file_username,
             smallImageText: config.Rich_Presence.username,
             instance: false,
-            // partySize: 0,
-            // partyMax: config.Rich_Presence.maxpartysize,
-            startTimestamp: d1,
-            // endTimestamp: d2,
-            //buttons: [{
-            //  label: config.Rich_Presence.button.label,
-            //	url: config.Rich_Presence.button.url
-            //}]
+            startTimestamp: d1
         }).then(() => {
             Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
             statusConsole.innerHTML = "Status: 🟢 - Online" 

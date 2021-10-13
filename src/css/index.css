@@ -47,6 +47,13 @@ footer {
     z-index: 1;
 }
 
+#creator {
+    position: fixed;
+    right: 5%;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .back-btn {
     position: absolute;
     top: 10%;
@@ -74,7 +81,7 @@ footer {
 
 #container-text {
     position: absolute;
-    top: 15% !important;
+    top: 12.5% !important;
     left: 7.5% !important;
     font-size: 50px;
     color: white;

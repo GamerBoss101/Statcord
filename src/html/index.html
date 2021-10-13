@@ -26,6 +26,7 @@
 <body>
   <div id="grid">
     <div id="name">Statcord</div>
+    <div id="version"></div>
     <div id="drag"></div>
     <div id="settings">&#9881;</div>
     <div id="mini">&#x1F5D5;</div>
@@ -36,15 +37,13 @@
     <p id="container-text">Statcord</p>
     <div id="preview"></div>
   </div>
-  <div class="user-info-box">
+  <div class="user-info-box" id="user-info-box">
     <p id="user-username"></p>
     <p id="user-id"></p>
-    <form>
-      <input style="display:none;" type="text" id="codeinput" class="codeinput">
-          <br><br>
-          <input type="text" class="form-control" placeholder="Text input">
-          <br><br>
-          <div class="checkButton" align="center"><a type="button" class="button" onclick="userCreate(codeinput)"></a></div>
+    <form style="display:none;" id="user-create-form">
+        <input type="text" id="codeinput" class="form-control" placeholder="Username">
+        <br><br>
+        <div class="checkButton" align="center"><a type="button" class="button" onclick="userCreate(codeinput)"></a></div>
     </form>
     <button id="user-create-button" style="display:none;">User Create</button>
   </div>
@@ -55,6 +54,7 @@
     <div class="grid-button">Coming Soon!</div>
   </div>
     <footer>
+      <div id="creator">Sir Blob#7702</div>
       <p id="discord-find"></p>
     </footer>
   <script src="../js/controls.js"></script>

@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
-    "build": "electron-builder build",
-    "setup": "electron-installer-windows --src dist/win-unpacked/ --dest dist/installers/"
+    "pack": "electron-builder build"
   },
   "author": "Sir Blob",
   "license": "ISC",
@@ -17,7 +15,8 @@
     "discord.js": "^13.2.0",
     "find-process": "^1.4.5",
     "moment": "^2.29.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "uid-generator": "^2.0.0"
   },
   "devDependencies": {
     "electron": "^15.1.2",
@@ -25,7 +24,8 @@
     "electron-installer-windows": "^3.0.0",
     "electron-packager": "^15.4.0",
     "electron-rebuild": "^3.2.3",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.0.0"
   },
   "build": {
     "win": {

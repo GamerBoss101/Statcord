@@ -1,11 +1,17 @@
 const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron');
 const fs = require('fs');
+const UIDGenerator = require('uid-generator');
+const package = require('./package.json');
+
+// CLASS
+const uidgen = new UIDGenerator();
 
 let win;
 let iconpath = __dirname + '/icon.png';
 let appIcon = null;
 
-function createWindow() {
+async function createWindow() {
+    const ID = await uidgen.generate();
     win = new BrowserWindow({
         height: 578,
         width: 1025,
@@ -44,25 +50,16 @@ function createWindow() {
     if(!fs.existsSync(`config.json`)) {
         const json = {
             "Client_Id": "896551646308499537",
-            "Rich_Presence":{
-                "details": "Vibing",
-                "state": "Music. . .",
-                "file_username": "vibing",
-                "bannername": "Vibe_knight",
-                "file_bannername": "vibing",
-                "maxpartysize": 1,
-                "countdown_start": 1, 
-                "Refresh": false,
-                "Refresh_time": 1000,
-                "button":{
-                    "label": null,
-                    "url": null
-                }
-            },
-            "Dont_Touch":{
-                "updatecounter": 0
+            "username": "Guest",
+            "id": "Guest",
+            "Rich_Presence": {
+              "details": "Vibing",
+              "state": "Music. . .",
+              "file_username": "vibing",
+              "bannername": "Vibe_knight",
+              "file_bannername": "vibing"
             }
-        }
+          }
     
         let data = JSON.stringify(json, null, 2);
         fs.writeFile("config.json", data, function(err) { if(err) { return console.log(err) } console.log("The file was saved!") }); 
