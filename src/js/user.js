@@ -1,4 +1,7 @@
-const config = require('../../config.json');
+const fs = require('fs');
+
+let rawdata = fs.readFileSync('./config.json');
+let config = JSON.parse(rawdata);
 
 var userCreateForm = document.getElementById("user-create-form")
 var userUsername = document.getElementById("user-username");

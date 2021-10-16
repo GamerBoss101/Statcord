@@ -4,7 +4,6 @@ function onLoad () {
     var discordFind = document.getElementById("discord-find")
     find('name', 'Discord.exe', true)
     .then(function (list) {
-        console.log(list)
         if(list.length > 0) {
             discordFind.innerHTML = "🟢 - Discord Found"
             discordFind.style.color = "#00FF49";
@@ -22,7 +21,6 @@ function findDiscord () {
     var discordFind = document.getElementById("discord-find")
     find('name', 'Discord.exe', true)
     .then(function (list) {
-        console.log(list)
         if(list.length > 0) {
             discordFind.innerHTML = "🟢 - Discord Found"
             discordFind.style.color = "#00FF49";

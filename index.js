@@ -3,15 +3,12 @@ const fs = require('fs');
 const UIDGenerator = require('uid-generator');
 const package = require('./package.json');
 
-// CLASS
-const uidgen = new UIDGenerator();
-
 let win;
 let iconpath = __dirname + '/icon.png';
 let appIcon = null;
 
 async function createWindow() {
-    const ID = await uidgen.generate();
+    const ID = await makeID(15);
     win = new BrowserWindow({
         height: 578,
         width: 1025,
@@ -51,7 +48,7 @@ async function createWindow() {
         const json = {
             "Client_Id": "896551646308499537",
             "username": "Guest",
-            "id": "Guest",
+            "id": `${ID}`,
             "Rich_Presence": {
               "details": "Vibing",
               "state": "Music. . .",
@@ -63,6 +60,17 @@ async function createWindow() {
         let data = JSON.stringify(json, null, 2);
         fs.writeFile("config.json", data, function(err) { if(err) { return console.log(err) } console.log("The file was saved!") }); 
     }
+}
+
+// FUNCTION
+function makeID(length) { 
+    var result           = [];
+    var characters       = "0123456789012345678901234567890123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz____----..";
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
 }
 
 // IPCMAIN Functions
