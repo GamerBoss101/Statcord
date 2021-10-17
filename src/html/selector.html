@@ -31,14 +31,75 @@
     <div id="mini">&#x1F5D5;</div>
     <div id="close">&times;</div>
   </div>
-  <br>
+  <div id="grid-sidenav">
+    <div id="option" onclick="window.location.href='#section-form'">Configuration</div>
+    <div id="option" onclick="window.location.href='#section-image'">Image</div>
+  </div>
+  <p id="message">Picture ID Set :)</p>
   <div class="back-btn" id="back-btn">&#10094;</div>
-  <center>
-    <img src="../images/soon.png" class="img-soon" alt="Coming-Soon" height="250">
-  </center>
+ <section id="section-form">
+  <form class="form-horizontal" id="form" onsubmit="SubmitConfig(event)">
+    <div class="form-group">
+      <label for="inputCID3" class="col-sm-2 control-label">Client ID: </label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="inputCID3" placeholder="897980361290694686" readonly>
+      </div>
+    </div>
+    <p class="red" style="left:9%; position:relative;">^ We will allow custom Client ID's in later versions</p>
+    <div class="form-group">
+      <label for="inputDetails3" class="col-sm-2 control-label">Details: </label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="inputDetails3" placeholder="Vibing" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputState3" class="col-sm-2 control-label">State: </label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="inputState3" placeholder="Playing Music" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPicID3" class="col-sm-2 control-label">Picture ID: </label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="inputPicID3" placeholder="#ID">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPicCaption3" class="col-sm-2 control-label">Picture Caption: </label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="inputPicCaption3" placeholder="Playing Music">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-5">
+        <button type="submit" class="btn btn-success">Save</button>
+      </div>
+    </div>
+  </form>
+  <div id="prestatus-box">
+  <div id="prestatus-status"><b>PLAYING A GAME</b></div>
+  <div id="prestatus-status-image">
+    <img id="prestatus-status-image-show" src="">
+    <!--<img src="https://media.discordapp.net/attachments/604728137099640972/604745887813599232/pfpforperson.jpg?width=110&height=100">-->
+  </div>
+  <div id="prestatus-status-title"><b>LIFE</b></div>
+  <div id="prestatus-status-details"></div>
+  <div id="prestatus-status-state"></div>
+  <div id="prestatus-status-time">0:00:00 elapsed</div>
+  </div>
+  </section>
+  <section id="section-image">
+    <div id="image-selector"></div>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <p id="caption"></p>
+    </div>
+  </section>
   <footer>
     <p id="discord-find"></p>
   </footer>
+  <script src="../js/selector.js"></script>
   <script src="../js/controls.js"></script>
   <script src="../js/button.js"></script>
   <script src="../js/discord.js"></script>

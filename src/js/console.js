@@ -30,19 +30,29 @@ function onLoad () {
     userConsole.innerHTML = "User: " + config.username;
     statusConsole.innerHTML = "Status: 🔴 - Offline"; 
     statusConsole.style.color = "red";
-    settingsDetails.innerHTML = "Details: " + config.Rich_Presence.details;
-    settingsState.innerHTML = "State: " + config.Rich_Presence.state;
-    settingsPicturename.innerHTML = "Picture: " + config.Rich_Presence.file_bannername;
 }
 onLoad();
 
-var myVar = setInterval(updateConfig, 20000);
+var myVar2 = setInterval(liveView, 10000);
 
-function updateConfig () {
-    settingsDetails.innerHTML = "Details: " + config.Rich_Presence.details;
-    settingsState.innerHTML = "State: " + config.Rich_Presence.state;
-    settingsPicturename.innerHTML = "Picture: " + config.Rich_Presence.file_bannername;
+function liveView() {
+  var image = document.getElementById("prestatus-status-image-show");
+  fetch(`http://localhost/v1/statcord/pfp/${config.Client_Id}/${config.Rich_Presence.file_bannername}`)
+  .then(response => response.json())
+  .then(data => {
+    if(data.status === 404) {
+      image.src = "../images/Custom-Image.png"
+    } else {
+      image.src = data.image + "?width=110&height=100"
+    }
+  })
+
+  var state = document.getElementById("prestatus-status-state");
+  var details = document.getElementById("prestatus-status-details");
+  state.innerHTML = config.Rich_Presence.state;
+  details.innerHTML = config.Rich_Presence.details;
 }
+liveView();
 
 function On() {
     if(statusConsole.style.color == "chartreuse"){

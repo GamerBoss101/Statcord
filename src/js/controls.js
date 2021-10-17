@@ -6,7 +6,6 @@ function Version () {
     fetch('http://localhost/v1/statcord/version')
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         if(data.version === package.version) {
             appVersion.innerHTML = "v" + package.version;
             appVersion.style.color = "chartreuse";

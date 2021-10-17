@@ -41,7 +41,7 @@
       "shortcutName": "Statcord",
       "oneClick": false,
       "allowElevation": false,
-      "allowToChangeInstallationDirectory": true,
+      "allowToChangeInstallationDirectory": false,
       "createDesktopShortcut": true
     }
   }

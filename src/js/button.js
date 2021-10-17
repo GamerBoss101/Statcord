@@ -14,3 +14,8 @@ creatorButton.addEventListener("click", function (e) {
     e.preventDefault();
     shell.openExternal("https://sirblob.bosstop.ml/bosstop");
 });
+
+var selectorButton = document.getElementById("selector")
+selectorButton.addEventListener("click", function (e) {
+    ipcRenderer.send('open-selector');
+});

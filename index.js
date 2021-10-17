@@ -1,6 +1,5 @@
 const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron');
 const fs = require('fs');
-const UIDGenerator = require('uid-generator');
 const package = require('./package.json');
 
 let win;
@@ -50,11 +49,11 @@ async function createWindow() {
             "username": "Guest",
             "id": `${ID}`,
             "Rich_Presence": {
-              "details": "Vibing",
-              "state": "Music. . .",
-              "file_username": "vibing",
-              "bannername": "Vibe_knight",
-              "file_bannername": "vibing"
+              "details": null,
+              "state": null,
+              "file_username": null,
+              "bannername": null,
+              "file_bannername": null
             }
         }
         let data = JSON.stringify(json, null, 2);

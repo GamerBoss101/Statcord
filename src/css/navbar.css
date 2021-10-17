@@ -3,13 +3,8 @@
     padding: 0;
 }
 
-.fix {
-    position: fixed;
-    top: 0%;
-}
-
 #grid {
-    position: absolute;
+    position: fixed;
     top: 0%;
     display: grid;
     background-color: rgb(58, 58, 58);
