@@ -7,7 +7,7 @@ let iconpath = __dirname + '/icon.png';
 let appIcon = null;
 
 async function createWindow() {
-    const ID = await makeID(15);
+    const ID = await makeID(14);
     win = new BrowserWindow({
         height: 578,
         width: 1025,

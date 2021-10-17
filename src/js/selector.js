@@ -38,7 +38,7 @@ function changePage() {
         `;
       }
     } else {
-      listing_table.innerHTML = `<h1>NO ANNOUNCEMENTS</h1>`;
+      listing_table.innerHTML = `<h1>NO BANNERS</h1>`;
     }
   })
 }
@@ -59,8 +59,16 @@ function liveView() {
 
   var state = document.getElementById("prestatus-status-state");
   var details = document.getElementById("prestatus-status-details");
-  state.innerHTML = db.Rich_Presence.state;
-  details.innerHTML = db.Rich_Presence.details;
+  if(db.Rich_Presence.state == null) {
+    state.innerHTML = "Not Set";
+  } else {
+    state.innerHTML = db.Rich_Presence.state;
+  }
+  if(db.Rich_Presence.details == null) {
+    details.innerHTML = "Not Set";
+  } else {
+    details.innerHTML = db.Rich_Presence.details;
+  }
 }
 liveView();
 

@@ -14,9 +14,6 @@ var d1 = new Date ();
 // Adding Epochs to set the timer
 // d2.setSeconds(d1.getSeconds() + config.Rich_Presence.countdown_start);
 
-var settingsDetails = document.getElementById("console-settings-box-details")
-var settingsState = document.getElementById("console-settings-box-state")
-var settingsPicturename = document.getElementById("console-settings-box-picturename")
 var Console = document.getElementById("console")
 var statusConsole = document.getElementById("console-button-box-status")
 var userConsole = document.getElementById("console-button-box-user")
@@ -25,7 +22,7 @@ function onLoad () {
     Console.innerHTML += `
     <p style="font-size: 25px;">Discord-RPC Console</p>
     <p>User: ` + config.username + `&nbsp;&nbsp;&nbsp;&nbsp; ID: ` + config.id + `</p>
-    <p class="orange">Leaving this page will stop your custom status</p>
+    <p class="orange">Leaving this page will stop your custom status, but U can minimize this app to your tray.</p>
     `
     userConsole.innerHTML = "User: " + config.username;
     statusConsole.innerHTML = "Status: 🔴 - Offline"; 
@@ -46,33 +43,47 @@ function liveView() {
       image.src = data.image + "?width=110&height=100"
     }
   })
-
   var state = document.getElementById("prestatus-status-state");
   var details = document.getElementById("prestatus-status-details");
-  state.innerHTML = config.Rich_Presence.state;
-  details.innerHTML = config.Rich_Presence.details;
+  if(config.Rich_Presence.state == null) {
+    state.innerHTML = "Not Set";
+  } else {
+    state.innerHTML = config.Rich_Presence.state;
+  }
+  if(config.Rich_Presence.details == null) {
+    details.innerHTML = "Not Set";
+  } else {
+    details.innerHTML = config.Rich_Presence.details;
+  }
 }
 liveView();
 
 function On() {
-    if(statusConsole.style.color == "chartreuse"){
-        Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: Status is already On :/</p>`;
-        return;
-    } else {
-        Console.innerHTML += `<p>[` + moment(d1).format('LTS') + `]: Setting Custom Status</p>`
-        rpc.setActivity({
-            details: config.Rich_Presence.details,
-            state: config.Rich_Presence.state,
-            largeImageKey: config.Rich_Presence.file_bannername,
-            largeImageText: config.Rich_Presence.bannername,
-            instance: false,
-            startTimestamp: d1
-        }).then(() => {
-            Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
-            statusConsole.innerHTML = "Status: 🟢 - Online" 
-            statusConsole.style.color = "chartreuse";
-        })
-    }
+    find('name', 'Discord.exe', true)
+    .then(function (list) {
+        if(list.length > 0) {
+            if(statusConsole.style.color == "chartreuse"){
+                Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: Status is already On :/</p>`;
+                return;
+            } else {
+                Console.innerHTML += `<p>[` + moment(d1).format('LTS') + `]: Setting Custom Status</p>`
+                rpc.setActivity({
+                    details: config.Rich_Presence.details,
+                    state: config.Rich_Presence.state,
+                    largeImageKey: config.Rich_Presence.file_bannername,
+                    largeImageText: config.Rich_Presence.bannername,
+                    instance: false,
+                    startTimestamp: d1
+                }).then(() => {
+                    Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
+                    statusConsole.innerHTML = "Status: 🟢 - Online" 
+                    statusConsole.style.color = "chartreuse";
+                })
+            }
+        } else {
+            Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: Discord is not active or Could not be found</p>`;
+        }
+    });
 }
 
 async function Update() {
@@ -113,5 +124,5 @@ function Off() {
 }
 
 rpc.login({ clientId: config.Client_Id }).catch((err) => {
-    Console.innerHTML += `<p class="red">` + err + `</p>`
+    Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') +`]: ` + err + `</p>`
 });

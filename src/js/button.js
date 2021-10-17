@@ -12,7 +12,7 @@ consoleButton.addEventListener("click", function (e) {
 var creatorButton = document.getElementById("creator")
 creatorButton.addEventListener("click", function (e) {
     e.preventDefault();
-    shell.openExternal("https://sirblob.bosstop.ml/bosstop");
+    shell.openExternal("https://discord.gg/yZZttDd6XT");
 });
 
 var selectorButton = document.getElementById("selector")
