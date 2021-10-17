@@ -62,7 +62,7 @@ function On() {
     find('name', 'Discord.exe', true)
     .then(function (list) {
         if(list.length > 0) {
-            if(config.Rich_Presence.details == null || config.Rich_Presence.status == null || config.Rich_Presence.file_bannername == null || config.Rich_Presence.bannername == null) {
+            if(config.Rich_Presence.details == null || config.Rich_Presence.bannername == null) {
                 Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: U need to set your Custom Status First<br> Go Back and Click Selector</p>`;
                 return;
             }
