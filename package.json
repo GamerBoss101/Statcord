@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder build"
+    "pack": "electron-builder build",
+    "dist:linux": "electron-builder --linux"
   },
   "author": "Sir Blob",
+  "email" : "sirblob0@gmail.com",
   "license": "Apache-2.0 License",
   "dependencies": {
     "colors": "^1.4.0",
@@ -24,19 +26,24 @@
   },
   "build": {
     "appId": "ml.bosstop.statcord",
+    "forceCodeSigning": true,
     "productName": "Statcord",
     "win": {
       "target": "nsis",
-      "asar": "false"
+      "asar": "true"
     },
     "mac": {
       "target": "dmg",
       "icon": "./icon.png"
     },
     "linux": {
-      "target": "AppImage",
+      "target": [
+        "deb",
+        "AppImage"
+      ],
       "icon": "./icon.png",
-      "category": "Other",
+      "category": "Development",
+      "synopsis": "Discord Custom Rich Presence",
       "description": "Discord Custom Rich Presence with a library or custom templates and banners"
     },
     "nsis": {

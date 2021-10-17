@@ -22,7 +22,7 @@ function onLoad () {
     Console.innerHTML += `
     <p style="font-size: 25px;">Discord-RPC Console</p>
     <p>User: ` + config.username + `&nbsp;&nbsp;&nbsp;&nbsp; ID: ` + config.id + `</p>
-    <p class="orange">Leaving this page will stop your custom status, but U can minimize this app to your tray.</p>
+    <p class="orange">Leaving this page will stop your custom status, but you can minimize this app to your tray.</p>
     `
     userConsole.innerHTML = "User: " + config.username;
     statusConsole.innerHTML = "Status: 🔴 - Offline"; 
