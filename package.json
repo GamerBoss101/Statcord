@@ -63,5 +63,9 @@
         "repo": "Statcord"
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GamerBoss101/Statcord"
   }
 }
