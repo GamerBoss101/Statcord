@@ -37,7 +37,7 @@ var myVar2 = setInterval(liveView, 10000);
 
 function liveView() {
   var image = document.getElementById("prestatus-status-image-show");
-  fetch(`http://localhost/v1/statcord/pfp/${config.Client_Id}/${config.Rich_Presence.file_bannername}`)
+  fetch(`https://api.bosstop.ml/v1/statcord/pfp/${config.Client_Id}/${config.Rich_Presence.file_bannername}`)
   .then(response => response.json())
   .then(data => {
     if(data.status === 404) {

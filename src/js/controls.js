@@ -3,7 +3,7 @@ const package = require('../../package.json');
 
 var appVersion = document.getElementById("version")
 function Version () {
-    fetch('http://localhost/v1/statcord/version')
+    fetch('https://api.bosstop.ml/v1/statcord/version')
     .then(response => response.json())
     .then(data => {
         if(data.version === package.version) {

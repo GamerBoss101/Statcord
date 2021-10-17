@@ -10,7 +10,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 var records_per_page = 300;
 
 function onLoad() {
-  fetch('http://localhost/v1/statcord')
+  fetch('https://api.bosstop.ml/v1/statcord')
   .then(response => response.json())
   .then(data => {
     if(!data) return;
@@ -27,7 +27,7 @@ onLoad();
 
 function changePage() {
   var listing_table = document.getElementById("image-selector");
-  fetch('http://localhost/v1/statcord/pfp/897980361290694686')
+  fetch('https://api.bosstop.ml/v1/statcord/pfp/897980361290694686')
   .then(response => response.json())
   .then(data => {
     if(data.length > 0) {
@@ -47,7 +47,7 @@ var myVar2 = setInterval(liveView, 10000);
 
 function liveView() {
   var image = document.getElementById("prestatus-status-image-show");
-  fetch(`http://localhost/v1/statcord/pfp/${db.Client_Id}/${db.Rich_Presence.file_bannername}`)
+  fetch(`https://api.bosstop.ml/v1/statcord/pfp/${db.Client_Id}/${db.Rich_Presence.file_bannername}`)
   .then(response => response.json())
   .then(data => {
     if(data.status === 404) {
@@ -90,7 +90,7 @@ function pfp(id, client) {
   var modalImg = document.getElementById("img01");
   var Caption = document.getElementById("caption");
 
-  fetch(`http://localhost/v1/statcord/pfp/${client}/${id}`)
+  fetch(`https://api.bosstop.ml/v1/statcord/pfp/${client}/${id}`)
   .then(response => response.json())
   .then(data => {
     modal.style.display = "block";
