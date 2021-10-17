@@ -1,29 +1,24 @@
 {
   "name": "statcord",
   "version": "1.0.0",
-  "description": "Discord rich Presense Program",
+  "description": "Discord Custom Rich Presence with a library or custom templates and banners",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder build"
   },
   "author": "Sir Blob",
-  "license": "ISC",
+  "license": "Apache-2.0 License",
   "dependencies": {
     "colors": "^1.4.0",
     "discord-rpc": "^4.0.1",
     "discord.js": "^13.2.0",
     "find-process": "^1.4.5",
-    "moment": "^2.29.1",
-    "path": "^0.12.7",
-    "uid-generator": "^2.0.0"
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "electron": "^15.1.2",
     "electron-builder": "^22.13.1",
-    "electron-installer-windows": "^3.0.0",
-    "electron-packager": "^15.4.0",
-    "electron-rebuild": "^3.2.3",
     "fs": "^0.0.1-security",
     "node-fetch": "^3.0.0"
   },
@@ -32,7 +27,17 @@
     "productName": "Statcord",
     "win": {
       "target": "nsis",
-      "asar": "true"
+      "asar": "false"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "./icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "./icon.png",
+      "category": "Other",
+      "description": "Discord Custom Rich Presence with a library or custom templates and banners"
     },
     "nsis": {
       "license": "./eula.txt",
@@ -43,6 +48,13 @@
       "allowElevation": false,
       "allowToChangeInstallationDirectory": false,
       "createDesktopShortcut": true
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "GamerBoss101",
+        "repo": "Statcord"
+      }
+    ]
   }
 }
