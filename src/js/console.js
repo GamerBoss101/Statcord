@@ -74,7 +74,7 @@ function On() {
                 rpc.setActivity({
                     details: config.Rich_Presence.details,
                     state: config.Rich_Presence.state,
-                    largeImageKey: config.Rich_Presence.file_bannername,
+                    largeImageKey: config.Rich_Presence.file_bannername.toLowerCase(),
                     largeImageText: config.Rich_Presence.bannername,
                     instance: false,
                     startTimestamp: d1
@@ -99,7 +99,7 @@ async function Update() {
         rpc.setActivity({
             details: config.Rich_Presence.details,
             state: config.Rich_Presence.state,
-            largeImageKey: config.Rich_Presence.file_bannername,
+            largeImageKey: config.Rich_Presence.file_bannername.toLowerCase(),
             largeImageText: config.Rich_Presence.bannername,
             instance: false,
             startTimestamp: d1
