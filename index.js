@@ -19,7 +19,7 @@ async function createWindow() {
         title: 'Statcord',
         icon: __dirname + '/icon.png',
         blur: true,
-        blurType: "blurbehind",
+        blurType: "acrylic",
         webPreferences: {
           nodeIntegration: true,
           contextIsolation: false
