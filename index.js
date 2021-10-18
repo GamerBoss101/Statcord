@@ -1,6 +1,8 @@
-const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron');
+const {app, BrowserWindow, contextBridge, Menu, Tray, ipcMain, ipcRenderer} = require('electron');
 const fs = require('fs');
+const path = require('path');
 const package = require('./package.json');
+const glasstron = require('glasstron');
 
 let win;
 let iconpath = __dirname + '/icon.png';
@@ -8,19 +10,20 @@ let appIcon = null;
 
 async function createWindow() {
     const ID = await makeID(14);
-    win = new BrowserWindow({
+    win = new glasstron.BrowserWindow({
         height: 578,
         width: 1025,
-        resizable: false,
-        icon: __dirname + '/icon.png',
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        },
         frame: false,
         maximizable: true,
         minimizable: true,
         title: 'Statcord',
+        icon: __dirname + '/icon.png',
+        blur: true,
+        blurType: "blurbehind",
+        webPreferences: {
+          nodeIntegration: true,
+          contextIsolation: false
+        }
     })
     win.setTitle('Statcord');
     win.loadFile('src/html/index.html');
