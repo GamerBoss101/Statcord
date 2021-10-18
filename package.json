@@ -9,13 +9,14 @@
     "dist:linux": "electron-builder --linux"
   },
   "author": "Sir Blob",
-  "email" : "sirblob0@gmail.com",
+  "email": "sirblob0@gmail.com",
   "license": "Apache-2.0 License",
   "dependencies": {
     "colors": "^1.4.0",
     "discord-rpc": "^4.0.1",
     "discord.js": "^13.2.0",
     "find-process": "^1.4.5",
+    "glasstron": "^0.1.1",
     "moment": "^2.29.1"
   },
   "devDependencies": {
