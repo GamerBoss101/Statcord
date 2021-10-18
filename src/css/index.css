@@ -24,7 +24,7 @@ html, body {
 }
 
 body {
-    background: rgb(32, 32, 32) !important;
+    background: rgba(32, 32, 32, 0.75) !important;
     color: white;
     height: 2500px !important;
 }
