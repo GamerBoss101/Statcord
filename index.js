@@ -16,10 +16,11 @@ async function createWindow() {
         frame: false,
         maximizable: true,
         minimizable: true,
+        resizable: false,
         title: 'Statcord',
         icon: __dirname + '/icon.png',
         blur: true,
-        blurType: "acrylic",
+        blurType: "blurbehind",
         webPreferences: {
           nodeIntegration: true,
           contextIsolation: false
