@@ -78,3 +78,5 @@ dist/
 config.json
 rpc/
 test.json
+build.bat
+start.bat

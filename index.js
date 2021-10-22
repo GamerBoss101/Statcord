@@ -1,8 +1,8 @@
-const {app, BrowserWindow, contextBridge, Menu, Tray, ipcMain, ipcRenderer} = require('electron');
+const {app, Menu, Tray, ipcMain} = require('electron');
 const fs = require('fs');
 const path = require('path');
 const package = require('./package.json');
-const glasstron = require('glasstron');
+const Glasstron = require('glasstron');
 
 let win;
 let iconpath = __dirname + '/icon.png';
@@ -10,7 +10,7 @@ let appIcon = null;
 
 async function createWindow() {
     const ID = await makeID(14);
-    win = new glasstron.BrowserWindow({
+    win = new Glasstron.BrowserWindow({
         height: 578,
         width: 1025,
         frame: false,
@@ -89,4 +89,4 @@ ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { tray.destroy(); });
 app.on('window-all-closed', function(){ if(process.platform !== 'darwin'){ app.quit() } });
-app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) { createWindow() } });
+app.on('activate', () => { if (Glasstron.BrowserWindow.getAllWindows().length === 0) { createWindow() } });
