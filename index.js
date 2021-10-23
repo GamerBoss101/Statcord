@@ -47,7 +47,7 @@ async function createWindow() {
 
     if(!fs.existsSync(`config.json`)) {
         const json = {
-            "Client_Id": "896551646308499537",
+            "Client_Id": "897980361290694686",
             "username": "Guest",
             "id": `${ID}`,
             "Rich_Presence": {

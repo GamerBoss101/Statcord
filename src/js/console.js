@@ -29,7 +29,7 @@ function onLoad () {
 }
 onLoad();
 
-var myVar2 = setInterval(liveView, 10000);
+var myVar2 = setInterval(liveView, 5000);
 
 function liveView() {
   var image = document.getElementById("prestatus-status-image-show");
@@ -42,8 +42,14 @@ function liveView() {
       image.src = data.image + "?width=110&height=100"
     }
   })
+  var title = document.getElementById("prestatus-status-title");
   var state = document.getElementById("prestatus-status-state");
   var details = document.getElementById("prestatus-status-details");
+  if(db.Client_Id == '897980361290694686') {
+    title.innerHTML = "<b>LIFE</b>"
+  } else {
+    title.innerHTML = "<b>CUSTOM</b>"
+  }
   if(db.Rich_Presence.state == null) {
     state.innerHTML = "Not Set";
   } else {
@@ -78,13 +84,9 @@ function On() {
                     instance: false,
                     startTimestamp: d1
                 }).then(() => {
-                    db.Status = true;
                     Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
                     statusConsole.innerHTML = "Status: 🟢 - Online" 
                     statusConsole.style.color = "chartreuse";
-                    fs.writeFile('./db.json', JSON.stringify(db, null, 2), function writeJSON(err) {
-                        if (err) return console.log(err);
-                    });
                 })
             }
         } else {

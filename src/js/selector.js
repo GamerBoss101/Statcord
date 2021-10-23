@@ -43,7 +43,7 @@ function changePage() {
   })
 }
 
-var myVar2 = setInterval(liveView, 10000);
+var myVar2 = setInterval(liveView, 5000);
 
 function liveView() {
   var image = document.getElementById("prestatus-status-image-show");
@@ -56,9 +56,14 @@ function liveView() {
       image.src = data.image + "?width=110&height=100"
     }
   })
-
+  var title = document.getElementById("prestatus-status-title");
   var state = document.getElementById("prestatus-status-state");
   var details = document.getElementById("prestatus-status-details");
+  if(db.Client_Id == '897980361290694686') {
+    title.innerHTML = "<b>LIFE</b>"
+  } else {
+    title.innerHTML = "<b>CUSTOM</b>"
+  }
   if(db.Rich_Presence.state == null) {
     state.innerHTML = "Not Set";
   } else {
@@ -72,22 +77,25 @@ function liveView() {
 }
 liveView();
 
-function Submitdb(event) {
+function SubmitConfig(event) {
   event.preventDefault();
-  var message = document.getElementById("message");
   var details = document.getElementById("inputDetails3");
   var state = document.getElementById("inputState3");
   var PictureID = document.getElementById("inputPicID3");
   var PictureCaption = document.getElementById("inputPicCaption3");
-  db.Rich_Presence.details = details.value;
-  db.Rich_Presence.state = state.value;
+  if(details.value) {
+    db.Rich_Presence.details = details.value;
+  }
+  if(state.value) {
+    db.Rich_Presence.state = state.value;
+  }
   if(PictureID.value) {
     db.Rich_Presence.file_bannername = PictureID.value;
   }
   if(PictureCaption.value) {
     db.Rich_Presence.bannername = PictureCaption.value;
   }
-  fs.writeFile('./db.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
   });
   alert('Saved')
@@ -122,7 +130,7 @@ function setpfp(id, client, caption) {
   db.Client_Id = client;
   db.Rich_Presence.file_bannername = id;
   db.Rich_Presence.bannername = caption;
-  fs.writeFile('./db.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
   });
   message.style.display = "block";
