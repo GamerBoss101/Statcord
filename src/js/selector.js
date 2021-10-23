@@ -72,7 +72,7 @@ function liveView() {
 }
 liveView();
 
-function SubmitConfig(event) {
+function Submitdb(event) {
   event.preventDefault();
   var message = document.getElementById("message");
   var details = document.getElementById("inputDetails3");
@@ -87,7 +87,7 @@ function SubmitConfig(event) {
   if(PictureCaption.value) {
     db.Rich_Presence.bannername = PictureCaption.value;
   }
-  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+  fs.writeFile('./db.json', JSON.stringify(db, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
   });
   alert('Saved')
@@ -122,7 +122,7 @@ function setpfp(id, client, caption) {
   db.Client_Id = client;
   db.Rich_Presence.file_bannername = id;
   db.Rich_Presence.bannername = caption;
-  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+  fs.writeFile('./db.json', JSON.stringify(db, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
   });
   message.style.display = "block";

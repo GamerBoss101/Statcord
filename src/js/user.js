@@ -1,7 +1,6 @@
 const fs = require('fs');
 
-let rawdata = fs.readFileSync('./config.json');
-let config = JSON.parse(rawdata);
+let db = JSON.parse(fs.readFileSync("./config.json", "utf8"));
 
 var userCreateForm = document.getElementById("user-create-form")
 var userUsername = document.getElementById("user-username");
@@ -10,13 +9,13 @@ var userCreatebtn = document.getElementById("user-create-button")
 var userCreatebox = document.getElementById("user-info-box")
 
 function onStart () {
-    if(!config.id) {
+    if(!db.id) {
         userCreatebtn.style.display = "contents";
         userCreateForm.style.display = "contents";
     } else {
         userCreatebox.style.fontSize = "18px";
-        userUsername.innerHTML = "Username: " + config.username;
-        UserID.innerHTML = "ID: " + config.id;
+        userUsername.innerHTML = "Username: " + db.username;
+        UserID.innerHTML = "ID: " + db.id;
     }
 }
 onStart();

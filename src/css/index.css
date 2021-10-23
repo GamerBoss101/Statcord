@@ -37,7 +37,7 @@ object {
 
 
 footer {
-    background-color: rgba(78, 78, 78, 0.432);
+    background-color: rgb(20, 20, 20, 0.8);
     color: rgb(255, 255, 255);
     position: fixed;
     left: 0;

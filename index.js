@@ -1,7 +1,5 @@
-const {app, Menu, Tray, ipcMain} = require('electron');
+const {app, Menu, Tray, ipcMain } = require('electron');
 const fs = require('fs');
-const path = require('path');
-const package = require('./package.json');
 const Glasstron = require('glasstron');
 
 let win;
