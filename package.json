@@ -2,7 +2,7 @@
     "name": "statcord",
     "version": "1.1.0",
     "description": "Discord Custom Rich Presence with a library or custom templates and banners",
-    "main": "index.ts",
+    "main": "index.js",
     "scripts": {
         "start": "electron .",
         "pack": "electron-builder build",

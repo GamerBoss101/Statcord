@@ -1,4 +1,4 @@
-const {app, Menu, Tray, ipcMain } = require('electron');
+const { app, Menu, Tray, ipcMain } = require('electron');
 const fs = require('fs');
 const Glasstron = require('glasstron');
 const express = require("express");
@@ -14,7 +14,6 @@ async function createWindow() {
         height: 578,
         width: 1025,
         frame: false,
-        maximizable: true,
         minimizable: true,
         resizable: false,
         title: 'Statcord',
