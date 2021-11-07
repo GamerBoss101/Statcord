@@ -1,6 +1,8 @@
 const {app, Menu, Tray, ipcMain } = require('electron');
 const fs = require('fs');
 const Glasstron = require('glasstron');
+const express = require("express");
+const web = express();
 
 let win;
 let iconpath = __dirname + '/icon.png';
@@ -50,6 +52,7 @@ async function createWindow() {
             "Client_Id": "897980361290694686",
             "username": "Guest",
             "id": `${ID}`,
+            "status": false,
             "Rich_Presence": {
               "details": null,
               "state": null,
@@ -83,8 +86,16 @@ ipcMain.on('open-setup', () => { win.loadFile('src/html/setup.html'); });
 ipcMain.on('open-selector', () => { win.loadFile('src/html/selector.html'); });
 ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
 
+// WEB Functions
+web.get("/", (req, res) => {
+    res.render("index");
+});
+
 // APP Functions
+
+web.listen(80, () => { console.log( `Server is running on http://localhost:${80} !`) });
+
 app.whenReady().then(createWindow);
-app.on('before-quit', function() { tray.destroy(); });
+app.on('before-quit', function() { Tray.destroy(); });
 app.on('window-all-closed', function(){ if(process.platform !== 'darwin'){ app.quit() } });
 app.on('activate', () => { if (Glasstron.BrowserWindow.getAllWindows().length === 0) { createWindow() } });

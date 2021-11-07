@@ -15,7 +15,7 @@ function onLoad () {
 }
 onLoad();
 
-var myVar = setInterval(findDiscord, 20000);
+var myVar = setInterval(findDiscord, 10000);
 
 function findDiscord () {
     var discordFind = document.getElementById("discord-find")

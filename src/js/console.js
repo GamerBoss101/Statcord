@@ -1,6 +1,4 @@
 const fs = require('fs');
-const DiscordRPC = require('discord-rpc');
-const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 const moment = require('moment');
 
 let db = JSON.parse(fs.readFileSync("./config.json", "utf8"));
@@ -84,15 +82,23 @@ function On() {
                     instance: false,
                     startTimestamp: d1
                 }).then(() => {
-                    Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
-                    statusConsole.innerHTML = "Status: 🟢 - Online" 
-                    statusConsole.style.color = "chartreuse";
+                  StatusTrue();
+                  Console.innerHTML += `<p class="lightgreen">[` + moment(d1).format('LTS') + `]: Custom Status Set :)</p>`
+                  statusConsole.innerHTML = "Status: 🟢 - Online" 
+                  statusConsole.style.color = "chartreuse";
                 })
             }
         } else {
             Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: Discord is not active or Could not be found</p>`;
         }
     });
+}
+
+function StatusTrue() {
+  db.status = true;
+  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+    if (err) return console.log(err);
+  });
 }
 
 async function Update() {
@@ -122,9 +128,10 @@ async function Update() {
 function Off() {
     if(statusConsole.style.color == "chartreuse"){
         rpc.clearActivity().then(() => {
-            Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') +`]: Turning Off :(</p>`
-            statusConsole.innerHTML = "Status: 🔴 - Offline" 
-            statusConsole.style.color = "red";
+          StatusFalse()
+          Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') +`]: Turning Off :(</p>`
+          statusConsole.innerHTML = "Status: 🔴 - Offline" 
+          statusConsole.style.color = "red";
         })
     } else {
         Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') + `]: Custom Status is already Off :/</p>`;
@@ -132,6 +139,9 @@ function Off() {
     }
 }
 
-rpc.login({ clientId: db.Client_Id }).catch((err) => {
-    Console.innerHTML += `<p class="red">[` + moment(d1).format('LTS') +`]: ` + err + `</p>`
-});
+function StatusFalse() {
+  db.status = true;
+  fs.writeFile('./config.json', JSON.stringify(db, null, 2), function writeJSON(err) {
+    if (err) return console.log(err);
+  });
+}

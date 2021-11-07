@@ -2,7 +2,7 @@
     "name": "statcord",
     "version": "1.1.0",
     "description": "Discord Custom Rich Presence with a library or custom templates and banners",
-    "main": "index.ts",
+    "main": "index.js",
     "scripts": {
         "start": "electron .",
         "pack": "electron-builder build",
@@ -12,19 +12,21 @@
     "author": "Sir Blob",
     "email": "sirblob0@gmail.com",
     "license": "Apache-2.0 License",
-    "devDependencies": {
-        "electron": "^15.3.0",
-        "electron-builder": "^22.13.1",
-        "fs": "^0.0.1-security",
-        "node-fetch": "^3.0.0"
-    },
     "dependencies": {
         "discord-rpc": "^4.0.1",
         "discord.js": "^13.3.1",
+        "epress": "^0.0.1-security",
         "express": "^4.17.1",
         "find-process": "^1.4.5",
         "glasstron": "^0.1.1",
         "moment": "^2.29.1"
+    },
+    "devDependencies": {
+        "electron": "^15.3.0",
+        "electron-builder": "^22.13.1",
+        "electron-rebuild": "^3.2.3",
+        "fs": "^0.0.1-security",
+        "node-fetch": "^3.0.0"
     },
     "build": {
         "appId": "ml.bosstop.statcord",
