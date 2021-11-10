@@ -12,7 +12,6 @@ Customizable : Details and State
 
 **Future Features:** <br />
 Versions for MAC and LINUX<br />
-Custom Client ID is not a feature yet but will be in the future. <br />
 Banner Categories<br />
 Status Buttons<br />
 Sync-able IDS and Template for Multiple Devices<br />
