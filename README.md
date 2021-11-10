@@ -16,4 +16,4 @@ Banner Categories<br />
 Status Buttons<br />
 Sync-able IDS and Template for Multiple Devices<br />
 
-![homepage_png](https://user-images.githubusercontent.com/76974209/137612638-e04b6614-23ae-4f67-a3a9-ae1b766a9fb3.png)
+![homepage_png](https://sirblob.bosstop.ml/image/Statcord_Km5F2wjDzk.png)
