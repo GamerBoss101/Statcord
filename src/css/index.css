@@ -42,7 +42,7 @@ footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 8%;
+    height: 5%;
     width: 100%;
     padding: 10px;
     z-index: 1;
@@ -55,127 +55,12 @@ footer {
     cursor: pointer;
 }
 
-.back-btn {
-    position: fixed;
-    top: 10%;
-    left: 1%;
-    color: #f1f1f1 !important;
-    font-size: 25px;
-    font-weight: bold;
-    transition: 0.3s;
-    opacity: 1 !important;
-    z-index: 1;
-}
-
-.back-btn:hover {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#container {
-    margin-top: 20px;
-    perspective: 500px;
-    width: 100%;
-    height: 250px;
-}
-
-#container-text {
-    position: absolute;
-    top: 12.5% !important;
-    left: 7.5% !important;
-    font-size: 50px;
-    color: white;
-    padding: 15px 5%;
-    animation-name: zoom;
-    animation-duration: 1.5s;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#preview {
-    position: absolute;
-    top: 1%;
-    left: 65%;
-    width: 100%;
-    height: 100%;
-    background: url("../images/preview.png") no-repeat;
-    transform: rotateY(-20deg);
-    animation-name: zoom2;
-    animation-duration: 1.5s;
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-@keyframes zoom2 {
-    from {
-        transform:scale(0);
-        transform: rotateY(0deg);
-    } 
-    to {
-        transform: scale(1);
-        transform: rotateY(-20deg);
-    }
-}
-
-.user-info-box {
-    position: absolute;
-    left: 5%;
-    top: 32.5%;
-    width: 25%;
-    height: 50%;
-    padding: 25px 2.5%;
-    color: white;
-    background-color: rgba(33, 27, 88, 0.815); 
-    border: 5px solid rgb(109, 70, 214);
-}
-
-#user-create-button {
-    background-color: rgb(9, 148, 148);
-}
-
-#button-grid {
-    position: absolute;
-    top: 32.5%;
-    left: 30%;
-    display: grid;
-    width: 100%;
-    padding: 25px 5%;
-    grid-gap:  25px 35px;
-    grid-template-columns: repeat(3, 175px);;
-    grid-template-rows: repeat(3, 100px);;
-}
-
-.grid-button {
-    background-color: rgb(9, 148, 148);
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
-    font-size: 25px;
-    border-radius: 5%;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.grid-button:hover {
-    background-color: rgb(42, 95, 95);
-}
-
-.img-soon {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-}
-
 .console-button-box {
     position: absolute;
     left: 5%;
-    top: 20%;
-    width: 25%;
-    height: 25%;
+    top: 10%;
+    width: 90%;
+    height: 20%;
     text-align: center;
     color: white;
     background-color: rgba(33, 27, 88, 0.815); 
@@ -201,23 +86,22 @@ footer {
 .button {
     position: absolute;
     top: 60%;
-    left: 15%;
+    left: 18%;
 }
 
-.console {
-    position: absolute;
-    left: 40%;
-    top: 20%;
-    width: 55%;
-    height: 65%;
-    padding: 25px 2.5%;
-    color: white;
-    background-color: rgb(33, 27, 88); 
-    border: 5px solid rgb(109, 70, 214);
-    font-size: 15px;
-    object-fit: contain;
-    overflow: auto; /* Enable scroll if needed */
-    font-family: 'Montserrat', sans-serif;
+#on {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+#update {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+#off {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
 }
 
 .console-settings-box {
@@ -232,64 +116,14 @@ footer {
     border: 5px solid rgb(109, 70, 214);
 }
 
-#section-form {
-    width: 100%;
-    height: 578px;
-    display: block;
-}
-
-#form {
-    color: white !important;
-    position: relative;
-    top: 20%;
-    left: 15%;
-    max-width: 80%;
-}
-
-#message {
-    position: fixed !important;
-    top: 20%;
-    left: 20%;
-    display: none;
-    color: rgb(13, 241, 44) !important;
-    font-size: 18px;
-}
-
-#grid-sidenav {
-    position: fixed;
-    top: 10%;
-    left: 20%;
-    display: grid;
-    height: 40px;
-    width: 60%;
-    text-align: center;
-    grid-template-columns: fit-content(100%) fit-content(100%) fit-content(100%);
-    grid-template-rows: 40px;
-    z-index: 1;
-    grid-gap: 10px 20px;
-}
-
-#option {
-    padding: 5px;
-    color: white;
-    font-size: 20px !important;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#option:hover {
-    cursor: pointer;
-    background-color: rgb(90, 147, 233);
-    border-radius: 5%;
-}
-
 #prestatus-box-console {
     color: white !important;
     position: absolute;
-    top: 50%;
-    left: 5%;
+    top: 27%;
+    left: 10%;
     width: 100%;
     height: 100%;
-    max-width: 30%;
+    max-width: 90%;
     max-height: 50%;
 }
 
@@ -311,8 +145,8 @@ footer {
     object-fit: contain;
     overflow: hidden;
     border-radius: 5%;
-    width: 75%;
-    height: 75%;
+    width: 80%;
+    height: 80%;
     max-width: 110px;
     max-height: 100px;
     display: block;
@@ -322,14 +156,14 @@ footer {
     position: absolute;
     top: 10%;
     left: 2.5%;
-    font-size: 15px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     display: block;
 }
 
 #prestatus-status-title{
     position: absolute;
-    top: 22%;
+    top: 20%;
     left: 45%;
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -337,7 +171,7 @@ footer {
 
 #prestatus-status-details {
     position: absolute;
-    top: 29%;
+    top: 26%;
     left: 45%;
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -345,7 +179,7 @@ footer {
 
 #prestatus-status-state {
     position: absolute;
-    top: 36%;
+    top: 33%;
     left: 45%;
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -353,7 +187,7 @@ footer {
 
 #prestatus-status-time {
     position: absolute;
-    top: 43%;
+    top: 40%;
     left: 45%;
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -365,114 +199,78 @@ footer {
     display: block;
 }
 
-#image-selector {
-    color: white !important;
-    position: relative;
-    top: 20%;
-    left: 12.5%;
-    width: 100%;
-    height: 100%;
-    max-width: 75%;
-    max-height: 65%;
-    padding: 50px 5%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(10px);
-    grid-gap: 10px 10px;
-    object-fit: contain;
-    overflow: auto; /* Enable scroll if needed */
+#prestatus-status-btn1 {
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
     font-family: 'Montserrat', sans-serif;
-}
-
-.pfp {
-    width: 100%;
-    height: 80%;
-    background-color: royalblue;
-    border: 1px solid rgb(37, 58, 124);
-    padding: 10px 2.5%;
-    font-size: 15px;
-}
-
-.pfp-button {
-    position: relative;
-    float: right;
-    background-color: rgb(125, 154, 240);
-    height: 30px;
-    width: 55px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-    text-decoration: none;
-}
-  
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-  
-/* Modal Content (image) */
-.modal-content {
-    margin: auto;
-    display: flex;
-    max-width: 50%;
-    max-height: 90%;
-    position: fixed; /* Stay in place */
-}
-
-#caption {
-    margin: auto;
     display: block;
     width: 80%;
-    max-width: 700px;
+    height: 8%;
+    background-color: rgb(75, 75, 75);
+    outline: none;
+    color: #fff;
     text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-    font-size: 30px;
-}
-  
-/* Add Animation */
-.modal-content, #caption {  
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-  
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-}
-  
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
+    padding: -20px 5% !important;
 }
 
-.close {
+#prestatus-status-btn2 {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1 !important;
-    font-size: 25px;
-    font-weight: bold;
-    transition: 0.3s;
-    opacity: 1 !important;
+    top: 60%;
+    left: 2.5%;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    width: 80%;
+    height: 8%;
+    background-color: rgb(75, 75, 75);
+    outline: none;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 5%;
 }
-  
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+
+.console-connect-box{
+    position: absolute;
+    left: 5%;
+    top: 65%;
+    width: 90%;
+    height: 20%;
+    text-align: center;
+    color: white;
+    background-color: rgba(33, 27, 88, 0.815); 
+    border: 5px solid rgb(109, 70, 214);
+}
+
+code {
+    background-color: rgba(255, 255, 255, 0) !important;
+    font-size: 18px;
+}
+
+.connectid-btn1 {
+    position: absolute;
+    left: 52.5%;
+    top: 75%;
+    text-align: center;
+}
+
+.connectid-btn2 {
+    position: absolute;
+    left: 32.5%;
+    top: 75%;
+    text-align: center;
+}
+
+#connect-input {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    width: 90%;
+    height: 20%;
+    align-items: center;
+}
+
+#connect-id-display {
+    position: absolute;
+    left: 10%;
+    top: 15%;
 }

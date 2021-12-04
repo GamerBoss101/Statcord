@@ -9,10 +9,9 @@ let iconpath = __dirname + '/icon.png';
 let appIcon = null;
 
 async function createWindow() {
-    const ID = await makeID(14);
     win = new Glasstron.BrowserWindow({
-        height: 578,
-        width: 1025,
+        height: 775,
+        width: 360,
         frame: false,
         minimizable: true,
         resizable: false,
@@ -48,51 +47,19 @@ async function createWindow() {
 
     if(!fs.existsSync(`config.json`)) {
         const json = {
-            "Client_Id": "897980361290694686",
-            "username": "Guest",
-            "id": `${ID}`,
-            "status": false,
-            "Rich_Presence": {
-              "details": null,
-              "state": null,
-              "file_username": null,
-              "bannername": null,
-              "file_bannername": null
-            }
+            "connectID": null,
+            "Client_Id": null
         }
         let data = JSON.stringify(json, null, 2);
         fs.writeFile("config.json", data, function(err) { if(err) { return console.log(err) } console.log("The file was saved!") }); 
     }
 }
 
-// FUNCTION
-function makeID(length) { 
-    var result           = [];
-    var characters       = "0123456789012345678901234567890123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz____----..";
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
-    }
-    return result.join('');
-}
-
 // IPCMAIN Functions
 ipcMain.on('minimize-window', () => { win.hide() });
 ipcMain.on('close-window', () => { win.close() });
 ipcMain.on('open-main', () => { win.loadFile('src/html/index.html'); });
-ipcMain.on('open-settings', () => { win.loadFile('src/html/settings.html'); });
-ipcMain.on('open-setup', () => { win.loadFile('src/html/setup.html'); });
-ipcMain.on('open-selector', () => { win.loadFile('src/html/selector.html'); });
 ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
-
-// WEB Functions
-web.get("/", (req, res) => {
-    res.render("index");
-});
-
-// APP Functions
-
-web.listen(80, () => { console.log( `Server is running on http://localhost:${80} !`) });
 
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { Tray.destroy(); });

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!--PAGE-->
-  <title>Discord Status</title>
+  <title>Statcord</title>
 
   <!--CSS-->
   <link rel="stylesheet" type="text/css" href="../css/index.css">
@@ -20,7 +20,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!--Fonts-->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,39 +27,49 @@
     <div id="name">Statcord</div>
     <div id="version"></div>
     <div id="drag"></div>
-    <div id="settings">&#9881;</div>
     <div id="mini">&#x1F5D5;</div>
     <div id="close">&times;</div>
   </div>
   <br>
-  <div id="container">
-    <p id="container-text">Statcord</p>
-    <div id="preview"></div>
+  <div id="panel-container">
+    <div class="console-button-box">
+      <p id="console-button-box-user"></p>
+      <p id="console-button-box-status"></p>
+      <br>
+      <div class="button">
+        <button class="btn btn-success" id="on" onclick="On()">On</button>
+        <button class="btn btn-warning" id="update" onclick="Update()">Update</button>
+        <button class="btn btn-danger" id="off" onclick="Off()">Off</button>
+      </div>
+    </div>
+    <div id="prestatus-box-console">
+      <div id="prestatus-status"><b>PLAYING A GAME</b></div>
+      <div id="prestatus-status-image">
+        <img id="prestatus-status-image-show" src="">
+      </div>
+      <div id="prestatus-status-title"></div>
+      <div id="prestatus-status-details"></div>
+      <div id="prestatus-status-state"></div>
+      <div id="prestatus-status-time">0:00:00 elapsed</div>
+      <button style="display: none" class="btn btn-secondary" id="prestatus-status-btn1" ></button>
+      <button style="display: none" class="btn btn-secondary" id="prestatus-status-btn2" ></button>
+    </div>
   </div>
-  <div class="user-info-box" id="user-info-box">
-    <p id="user-username"></p>
-    <p id="user-id"></p>
-    <form style="display:none;" id="user-create-form">
-        <input type="text" id="codeinput" class="form-control" placeholder="Username">
-        <br><br>
-        <div class="checkButton" align="center"><a type="button" class="button" onclick="userCreate(codeinput)"></a></div>
-    </form>
-    <button id="user-create-button" style="display:none;">User Create</button>
+  <!-- <div class="console" id="console"></div> -->
+  <div class="console-connect-box">
+    <code id="connect-id-display"></code>
+    <div class="form-group">
+      <input type="text" class="form-control" id="connect-input" placeholder="Connect ID">
+    </div>
+    <button type="button" id="connect-id-btn" class="btn btn-primary btn-sm connectid-btn1" onclick="ConnectID()">Connect</button>
+    <button type="button" id="panel-btn" class="btn btn-primary btn-sm connectid-btn2">Panel</button>
   </div>
-  <div id="button-grid">
-    <div class="grid-button" id="setup">Setup</div>
-    <div class="grid-button" id="selector">Selector</div>
-    <div class="grid-button" id="console">Console</div>
-    <div class="grid-button">Coming Soon!</div>
-  </div>
-    <footer>
-      <div id="creator">Sir Blob#7022</div>
-      <p id="discord-find"></p>
-    </footer>
+  <footer>
+    <div id="creator">Sir Blob</div>
+    <p id="discord-find"></p>
+  </footer>
   <script src="../js/controls.js"></script>
-  <script src="../js/button.js"></script>
+  <script src="../js/console.js"></script>
   <script src="../js/discord.js"></script>
-  <script src="../js/user.js"></script>
-  <script src="../js/status.js"></script>
 </body>
 </html>

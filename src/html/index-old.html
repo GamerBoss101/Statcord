@@ -20,6 +20,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
@@ -27,20 +28,38 @@
     <div id="name">Statcord</div>
     <div id="version"></div>
     <div id="drag"></div>
-    <div id="settings">&#9881;</div>
     <div id="mini">&#x1F5D5;</div>
     <div id="close">&times;</div>
   </div>
   <br>
-  <div class="back-btn black" id="back-btn">&#10094;</div>
-  <object data="https://statcord.bosstop.ml" title="setup docs"></object>
-  <footer style="background-color: rgba(78, 78, 78);">
-    <div id="creator">Sir Blob#7022</div>
-    <p id="discord-find"></p>
-  </footer>
+  <div id="container">
+    <p id="container-text">Statcord</p>
+    <div id="preview"></div>
+  </div>
+  <div class="user-info-box" id="user-info-box">
+    <p id="user-username"></p>
+    <p id="user-id"></p>
+    <form style="display:none;" id="user-create-form">
+        <input type="text" id="codeinput" class="form-control" placeholder="Username">
+        <br><br>
+        <div class="checkButton" align="center"><a type="button" class="button" onclick="userCreate(codeinput)"></a></div>
+    </form>
+    <button id="user-create-button" style="display:none;">User Create</button>
+  </div>
+  <div id="button-grid">
+    <div class="grid-button" id="setup">Setup</div>
+    <div class="grid-button" id="selector">Selector</div>
+    <div class="grid-button" id="console">Console</div>
+    <div class="grid-button">Coming Soon!</div>
+  </div>
+    <footer>
+      <div id="creator">Sir Blob#7022</div>
+      <p id="discord-find"></p>
+    </footer>
   <script src="../js/controls.js"></script>
   <script src="../js/button.js"></script>
   <script src="../js/discord.js"></script>
+  <script src="../js/user.js"></script>
   <script src="../js/status.js"></script>
 </body>
 </html>

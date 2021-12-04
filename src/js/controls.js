@@ -6,11 +6,11 @@ function Version () {
     fetch('https://api.bosstop.ml/v1/statcord/version')
     .then(response => response.json())
     .then(data => {
-        if(data.version === package.version) {
+        if(data.version == package.version || data.version < package.version) {
             appVersion.innerHTML = "v" + package.version;
             appVersion.style.color = "chartreuse";
         } else {
-            appVersion.innerHTML = "v" + package.version + " New Version Available, CLick ME!";
+            appVersion.innerHTML = "v" + data.version + " New Version Available";
             appVersion.style.color = "red";
             appVersion.style.cursor = "pointer";
             appVersion.addEventListener("click", function (e) {
@@ -22,11 +22,6 @@ function Version () {
 }
 Version();
 
-var settingsButton = document.getElementById("settings")
-settingsButton.addEventListener("click", function (e) {
-    ipcRenderer.send('open-settings');
-});
-
 var miniButton = document.getElementById("mini")
 miniButton.addEventListener("click", function (e) {
     ipcRenderer.send('minimize-window');
@@ -37,7 +32,14 @@ closeButton.addEventListener("click", function (e) {
     ipcRenderer.send('close-window');
 }); 
 
-var backButton = document.getElementById("back-btn")
-backButton.addEventListener("click", function (e) {
-    ipcRenderer.send('open-main');
-}); 
+var creatorButton = document.getElementById("creator")
+creatorButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    shell.openExternal("https://discord.gg/yZZttDd6XT");
+});
+
+var panelButton = document.getElementById("panel-btn")
+panelButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    shell.openExternal("https://sirblob.bosstop.ml/projects/statcord/user");
+});
