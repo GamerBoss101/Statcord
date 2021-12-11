@@ -1,8 +1,7 @@
-const { app, Menu, Tray, ipcMain } = require('electron');
+const { app, Menu, Tray, ipcMain, autoUpdater, dialog } = require('electron');
+require('update-electron-app')()
 const fs = require('fs');
 const Glasstron = require('glasstron');
-const express = require("express");
-const web = express();
 
 let win;
 let iconpath = __dirname + '/icon.png';
@@ -59,7 +58,8 @@ async function createWindow() {
 ipcMain.on('minimize-window', () => { win.hide() });
 ipcMain.on('close-window', () => { win.close() });
 ipcMain.on('open-main', () => { win.loadFile('src/html/index.html'); });
-ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
+// ipcMain.on('open-console', () => { win.loadFile('src/html/console.html'); });
+ipcMain.on('open-updater', () => { win.loadFile('src/html/update.html'); });
 
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { Tray.destroy(); });

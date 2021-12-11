@@ -14,8 +14,7 @@ function Version () {
             appVersion.style.color = "red";
             appVersion.style.cursor = "pointer";
             appVersion.addEventListener("click", function (e) {
-                e.preventDefault();
-                shell.openExternal("https://github.com/GamerBoss101/Statcord/releases");
+                ipcRenderer.send('open-updater');
             });
         }
     })

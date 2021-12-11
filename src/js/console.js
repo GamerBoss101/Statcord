@@ -97,7 +97,7 @@ function UserCheck() {
         if(data.status == 404){
           return;
         } else {
-          if(data.user) {
+          if(data.username) {
             document.getElementById("console-button-box-user").innerHTML = "User: " + data.username;
           } else {
             document.getElementById("console-button-box-user").innerHTML = "User: Guest";
