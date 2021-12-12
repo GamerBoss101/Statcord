@@ -2,6 +2,7 @@ const { app, Menu, Tray, ipcMain, autoUpdater, dialog } = require('electron');
 require('update-electron-app')()
 const fs = require('fs');
 const Glasstron = require('glasstron');
+const log = require('electron-log');
 
 let win;
 let iconpath = __dirname + '/icon.png';
@@ -54,6 +55,30 @@ async function createWindow() {
     }
 }
 
+const server = 'https://statcord-gamerboss101.vercel.app'
+const url = `${server}/update/${process.platform}/${app.getVersion()}`
+
+autoUpdater.setFeedURL({ url })
+
+setInterval(() => {
+    autoUpdater.checkForUpdates()
+    log.warn("Checked for Updates . . .")
+}, 10000)
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Restart', 'Later'],
+      title: 'Application Update',
+      message: process.platform === 'win32' ? releaseNotes : releaseName,
+      detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    }
+  
+    dialog.showMessageBox(dialogOpts).then((returnValue) => {
+      if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    })
+})
+
 // IPCMAIN Functions
 ipcMain.on('minimize-window', () => { win.hide() });
 ipcMain.on('close-window', () => { win.close() });
@@ -64,4 +89,4 @@ ipcMain.on('open-updater', () => { win.loadFile('src/html/update.html'); });
 app.whenReady().then(createWindow);
 app.on('before-quit', function() { Tray.destroy(); });
 app.on('window-all-closed', function(){ if(process.platform !== 'darwin'){ app.quit() } });
-app.on('activate', () => { if (Glasstron.BrowserWindow.getAllWindows().length === 0) { createWindow() } });
+app.on('activate', () => { if (Glasstron.BrowserWindow.getAllWindows().length === 0) { createWindow(); autoUpdater.checkForUpdatesAndNotify(); } });

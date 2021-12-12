@@ -16,7 +16,7 @@ const updateOptions = {
     gitRepo: "Statcord", // [Required] Your Repo Name
     gitUsername: "GamerBoss101",  // [Required] Your GitHub Username.
 
-    appName: "windows-binary-1.5.0", //[Required] The Name of the app archive and the app folder.
+    appName: "Statcord", //[Required] The Name of the app archive and the app folder.
     appExecutableName: "Statcord.exe", //[Required] The Executable of the Application to be Run after updating.
 
     progressBar: document.getElementById("download"), // {Default is null} [Optional] If Using Electron with a HTML Progressbar, use that element here, otherwise ignore
@@ -24,4 +24,9 @@ const updateOptions = {
     stageTitles: defaultStages, // {Default is defaultStages} [Optional] Sets the Status Title for Each Stage
 };
 
-uaup.Update(updateOptions);
+let isUpdateAvalible = uaup.CheckForUpdates(updateOptions);
+
+if(isUpdateAvalible){
+    // Do STUFF HERE
+    uaup.Update(updateOptions);
+}
